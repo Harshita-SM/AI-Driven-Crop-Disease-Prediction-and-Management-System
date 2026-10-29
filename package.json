@@ -1,0 +1,24 @@
+{
+  "name": "ai-driven-crop-disease-prediction-and-management-system",
+  "version": "1.0.0",
+  "description": "**Domain:** Agriculture, FoodTech & Rural Development   **Category:** Software   **Reference Year:** 2024   **Proposed By:** Ministry of Agriculture and Farmers Welfare   **Department:** Indian Council of Agricultural Research (ICAR)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harshita-SM/AI-Driven-Crop-Disease-Prediction-and-Management-System.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Harshita-SM/AI-Driven-Crop-Disease-Prediction-and-Management-System/issues"
+  },
+  "homepage": "https://github.com/Harshita-SM/AI-Driven-Crop-Disease-Prediction-and-Management-System#readme",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
