@@ -2,14 +2,25 @@ import React from 'react'
 import { Leaf } from 'lucide-react'
 import './Footer.css'
 
-function Footer() {
+function Footer({ setActiveTab }) {
   const currentYear = new Date().getFullYear()
+
+  function handleNavigate(tab) {
+    if (setActiveTab) {
+      setActiveTab(tab)
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <footer className="footer">
       <div className="footer-grid">
         <div className="footer-brand">
-          <div className="footer-logo">
+          <div
+            className="footer-logo"
+            onClick={() => handleNavigate('home')}
+            style={{ cursor: 'pointer' }}
+          >
             <div className="footer-logo-icon">
               <Leaf size={20} color="#ffffff" />
             </div>
@@ -19,40 +30,111 @@ function Footer() {
           </div>
           <p className="footer-description">
             An AI-powered agricultural tool to help farmers detect crop diseases
-            early and make smarter crop management decisions.
+            early, assess weather risks, and make smarter crop management decisions.
           </p>
         </div>
 
         <div className="footer-section">
-          <h4>Navigation</h4>
+          <h4>Platform Navigation</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Disease Detection</a></li>
-            <li><a href="#">Weather</a></li>
-            <li><a href="#">History</a></li>
-            <li><a href="#">About</a></li>
+            <li>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => handleNavigate('home')}
+              >
+                Home
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => handleNavigate('detection')}
+              >
+                Disease Detection
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => handleNavigate('weather')}
+              >
+                Weather & Disease Risk
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => handleNavigate('history')}
+              >
+                Scan History
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => handleNavigate('about')}
+              >
+                About ICAR Initiative
+              </button>
+            </li>
           </ul>
         </div>
 
         <div className="footer-section">
-          <h4>Information</h4>
+          <h4>Agricultural Intelligence</h4>
           <ul>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Contact</a></li>
+            <li>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => handleNavigate('detection')}
+              >
+                Leaf Pathology Analysis
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => handleNavigate('weather')}
+              >
+                Outbreak Warning Thresholds
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => handleNavigate('about')}
+              >
+                CNN Deep Learning Model
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="footer-link-btn"
+                onClick={() => handleNavigate('about')}
+              >
+                IPM Guidance Protocols
+              </button>
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="footer-bottom">
         <p className="footer-copyright">
-          © {currentYear} CropCare AI. All rights reserved. | College Project
+          © {currentYear} CropCare AI. Proposed by Ministry of Agriculture & ICAR.
         </p>
         <p className="footer-disclaimer">
-          ⚠️ Disclaimer: AI-generated predictions are estimates only and should
-          not replace professional agricultural or agronomical advice.
-          Always consult a qualified expert for critical crop decisions.
+          ⚠️ Disclaimer: AI-generated predictions are diagnostic estimates and should
+          not replace verified lab assays or direct field consultations with qualified agronomists.
         </p>
       </div>
     </footer>

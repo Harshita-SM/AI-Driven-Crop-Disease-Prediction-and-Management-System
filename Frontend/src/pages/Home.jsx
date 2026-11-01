@@ -9,10 +9,11 @@ import {
   Brain,
   ClipboardList,
   BookOpen,
+  ArrowRight
 } from 'lucide-react'
 import './Home.css'
 
-function HeroSection() {
+function HeroSection({ onNavigate }) {
   return (
     <section className="hero" id="hero">
       <div className="hero-inner">
@@ -35,12 +36,24 @@ function HeroSection() {
           </p>
 
           <div className="hero-buttons">
-            <a href="#hero" className="btn-primary">Detect Crop Disease</a>
-            <a href="#features" className="btn-secondary">Explore Features</a>
+            <button
+              type="button"
+              className="btn-primary"
+              onClick={() => onNavigate && onNavigate('detection')}
+            >
+              Detect Crop Disease
+            </button>
+            <a href="#features" className="btn-secondary">
+              Explore Features
+            </a>
           </div>
         </div>
 
-        <div className="hero-image-box">
+        <div
+          className="hero-image-box"
+          onClick={() => onNavigate && onNavigate('detection')}
+          style={{ cursor: 'pointer' }}
+        >
           <img
             src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=700&q=80"
             alt="Farmer inspecting crop leaves in a green field"
@@ -52,7 +65,7 @@ function HeroSection() {
             </div>
             <div className="badge-text">
               <strong>AI Disease Detection</strong>
-              <span>Powered by image analysis</span>
+              <span>Click to test scanner</span>
             </div>
           </div>
         </div>
@@ -61,29 +74,33 @@ function HeroSection() {
   )
 }
 
-function FeaturesSection() {
+function FeaturesSection({ onNavigate }) {
   const features = [
     {
       icon: <ScanSearch size={26} color="#2d8a56" />,
       title: 'AI Disease Detection',
+      tab: 'detection',
       description:
         'Analyze crop leaf images to identify potential diseases using an AI classification model.',
     },
     {
       icon: <CloudSun size={26} color="#2d8a56" />,
       title: 'Weather Insights',
+      tab: 'weather',
       description:
         'Understand environmental conditions that may influence crop health.',
     },
     {
       icon: <ShieldAlert size={26} color="#2d8a56" />,
       title: 'Disease Risk Assessment',
+      tab: 'weather',
       description:
         'Explore disease-specific risk indicators based on available environmental data.',
     },
     {
       icon: <Lightbulb size={26} color="#2d8a56" />,
       title: 'Intelligent Crop Guidance',
+      tab: 'detection',
       description:
         'Access understandable crop-management recommendations based on relevant agricultural information.',
     },
@@ -100,10 +117,17 @@ function FeaturesSection() {
 
         <div className="features-grid">
           {features.map((feature, index) => (
-            <div key={index} className="feature-card">
+            <div
+              key={index}
+              className="feature-card clickable"
+              onClick={() => onNavigate && onNavigate(feature.tab)}
+            >
               <div className="feature-icon">{feature.icon}</div>
               <h3>{feature.title}</h3>
               <p>{feature.description}</p>
+              <span className="feature-explore-link">
+                Open Tool <ArrowRight size={14} />
+              </span>
             </div>
           ))}
         </div>
@@ -112,7 +136,7 @@ function FeaturesSection() {
   )
 }
 
-function HowItWorksSection() {
+function HowItWorksSection({ onNavigate }) {
   const steps = [
     {
       number: '01',
@@ -154,7 +178,12 @@ function HowItWorksSection() {
 
         <div className="steps-grid">
           {steps.map((step, index) => (
-            <div key={index} className="step-card">
+            <div
+              key={index}
+              className="step-card"
+              onClick={() => onNavigate && onNavigate('detection')}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="step-number">{step.number}</div>
               <div className="step-icon">{step.icon}</div>
               <h3>{step.title}</h3>
@@ -167,7 +196,7 @@ function HowItWorksSection() {
   )
 }
 
-function CTASection() {
+function CTASection({ onNavigate }) {
   return (
     <section className="cta">
       <div className="cta-inner">
@@ -176,21 +205,25 @@ function CTASection() {
           Take the first step toward smarter crop management with AI-powered
           agricultural insights.
         </p>
-        <a href="#hero" className="btn-white">
+        <button
+          type="button"
+          className="btn-white"
+          onClick={() => onNavigate && onNavigate('detection')}
+        >
           Get Started
-        </a>
+        </button>
       </div>
     </section>
   )
 }
 
-function Home() {
+function Home({ onNavigate }) {
   return (
     <div className="home-page">
-      <HeroSection />
-      <FeaturesSection />
-      <HowItWorksSection />
-      <CTASection />
+      <HeroSection onNavigate={onNavigate} />
+      <FeaturesSection onNavigate={onNavigate} />
+      <HowItWorksSection onNavigate={onNavigate} />
+      <CTASection onNavigate={onNavigate} />
     </div>
   )
 }
