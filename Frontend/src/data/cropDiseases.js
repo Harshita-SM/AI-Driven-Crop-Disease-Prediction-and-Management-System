@@ -1,4 +1,6 @@
+
 export const CROP_DISEASES = [
+  // 1. Tomato Early Blight — existing sample
   {
     id: 'tomato-early-blight',
     crop: 'Tomato',
@@ -8,35 +10,40 @@ export const CROP_DISEASES = [
     severity: 'Moderate',
     confidence: 96.4,
     description:
-      'Early blight is a common fungal disease causing dark concentric target-like rings on older leaves, leading to defoliation.',
+      'A fungal disease that causes dark, concentric spots, usually on older tomato leaves.',
     symptoms: [
-      'Dark brown to black spots with concentric rings (target pattern)',
-      'Yellow chlorotic halos surrounding lesions',
-      'Premature drop of lower foliage progressing upwards',
-      'Dark sunken lesions on stem collars and fruit attachments'
+      'Dark brown spots with concentric rings.',
+      'Yellow areas around leaf lesions.',
+      'Premature loss of older leaves.',
+      'Dark lesions may appear near stems.'
     ],
     favorableConditions: {
-      temperature: '24°C - 29°C (75°F - 85°F)',
-      humidity: 'High (>80%) with extended leaf wetness'
+      temperature: '24–29°C',
+      humidity: 'High humidity and prolonged leaf wetness'
     },
     organicTreatment: [
-      'Apply cold-pressed neem oil (3-5 ml per liter of water) every 7-10 days',
-      'Spray copper-based organic fungicides (Bordeaux mixture 1%) at first sign',
-      'Prune lower infected leaves 6 inches from the soil surface and burn or discard away from fields'
+      'Remove heavily infected leaves and dispose of them safely.',
+      'Maintain soil health with mature compost.',
+      'Avoid handling plants when their foliage is wet.'
     ],
     chemicalTreatment: [
-      'Apply Chlorothalonil 75% WP (2 g/L) or Mancozeb 75% WP (2.5 g/L)',
-      'In severe infections, spray Azoxystrobin 23% SC (1 ml/L) alternating with Difenoconazole'
+      'Use a fungicide registered for tomato early blight in your region.',
+      'Follow the product label for application rates and harvest restrictions.'
     ],
     preventiveMeasures: [
-      'Practice 3-year crop rotation avoiding Solanaceous family crops (potato, eggplant, pepper)',
-      'Use drip irrigation instead of overhead sprinklers to minimize leaf wetness',
-      'Apply organic mulch (straw or plastic) to prevent soil-splashed spores'
+      'Rotate tomato crops with non-host crops.',
+      'Use drip irrigation where practical.',
+      'Maintain good spacing and airflow.',
+      'Remove infected plant debris.'
     ],
-    sampleImage: 'https://images.unsplash.com/photo-1592417817098-8f3d69106093?w=600&q=80'
+    sampleImage:
+      'https://images.unsplash.com/photo-1592417817098-8f3d69106093?w=600&q=80'
   },
+
+  // 2. Potato Late Blight
   {
     id: 'potato-late-blight',
+    modelLabel: 'potato_late_blight',
     crop: 'Potato',
     diseaseName: 'Potato Late Blight',
     scientificName: 'Phytophthora infestans',
@@ -44,34 +51,38 @@ export const CROP_DISEASES = [
     severity: 'High',
     confidence: 98.2,
     description:
-      'A devastating oomycete infection capable of destroying entire potato foliage and tubers within days during humid cool weather.',
+      'A destructive disease that can rapidly damage potato foliage and tubers in cool, wet conditions.',
     symptoms: [
-      'Water-soaked irregular pale green to dark brown lesions on leaf tips',
-      'White cottony fungal growth on leaf undersides in high humidity',
-      'Rapid wilting and browning of entire stems and canopy',
-      'Brown granular rot inside infected potato tubers'
+      'Irregular, water-soaked leaf lesions.',
+      'Brown or black patches that spread quickly.',
+      'Possible whitish growth on leaf undersides in humid conditions.',
+      'Brown rot may develop in infected tubers.'
     ],
     favorableConditions: {
-      temperature: '15°C - 22°C (Cool & damp)',
-      humidity: 'Very high relative humidity (>90%) with morning dew/fog'
+      temperature: 'Approximately 10–22°C, depending on conditions',
+      humidity: 'High humidity and prolonged leaf wetness'
     },
     organicTreatment: [
-      'Preventive bio-agent application: Trichoderma viride or Pseudomonas fluorescens (10 g/L soil drench)',
-      'Spray certified copper hydroxide / copper oxychloride before disease sets in',
-      'Immediately remove and destroy heavily infested haulms before harvest'
+      'Remove and safely dispose of severely infected plant material.',
+      'Avoid moving contaminated plant material between fields.',
+      'Seek local agricultural advice when the disease is suspected.'
     ],
     chemicalTreatment: [
-      'Cymoxanil 8% + Mancozeb 64% WP (2 g/L water)',
-      'Metalaxyl-M 4% + Mancozeb 64% WP (2.5 g/L) at first symptom',
-      'Dimethomorph 50% WP (1 g/L) as a curative spray'
+      'Use only products registered for potato late blight in your region.',
+      'Follow the product label and local disease-management advisories.',
+      'Rotate fungicide modes of action according to label guidance.'
     ],
     preventiveMeasures: [
-      'Plant certified disease-free certified seed tubers',
-      'Ensure high ridge earthing-up to prevent spores washing into underground tubers',
-      'Monitor ICAR / Agrometeorological late blight warning advisories'
+      'Plant certified disease-free seed potatoes.',
+      'Monitor local late-blight advisories.',
+      'Avoid prolonged leaf wetness where practical.',
+      'Remove volunteer potato plants and infected debris.'
     ],
-    sampleImage: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&q=80'
+    sampleImage:
+      'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600&q=80'
   },
+
+  // 3. Corn Common Rust — existing sample
   {
     id: 'corn-common-rust',
     crop: 'Corn (Maize)',
@@ -81,137 +92,478 @@ export const CROP_DISEASES = [
     severity: 'Moderate',
     confidence: 94.7,
     description:
-      'Common rust creates cinnamon-brown pustules on both upper and lower corn leaf surfaces, reducing photosynthetic capacity.',
+      'A fungal disease that produces rust-colored pustules on corn leaves. This is an existing sample record and is not the same as the model-supported Corn Cercospora Leaf Spot class.',
     symptoms: [
-      'Small, circular to elongated cinnamon-brown pustules (uredinia)',
-      'Pustules rupture epidermal leaf tissue releasing powdery rust spores',
-      'Spreads across upper and lower surfaces of leaves',
-      'Severe infection causes premature leaf senescence and poor ear fill'
+      'Cinnamon-brown pustules on leaves.',
+      'Pustules may occur on both leaf surfaces.',
+      'Pustules release powdery spores.',
+      'Severe infections may reduce healthy leaf area.'
     ],
     favorableConditions: {
-      temperature: '16°C - 25°C',
-      humidity: 'Relative humidity near 100% with prolonged dew'
+      temperature: 'Approximately 16–25°C',
+      humidity: 'High humidity and prolonged dew'
     },
     organicTreatment: [
-      'Spray wettable sulfur (3 g/L) at early vegetative stages',
-      'Foliar spray of garlic extract or fermented butter milk (sour curd) diluted 1:10',
-      'Promote good field air circulation by maintaining optimal plant density'
+      'Remove severely affected leaves when practical.',
+      'Maintain appropriate plant spacing.',
+      'Seek local agricultural advice for suitable management options.'
     ],
     chemicalTreatment: [
-      'Propiconazole 25% EC (1 ml/L) or Tebuconazole 25.9% EC (1 ml/L)',
-      'Azoxystrobin 18.2% + Difenoconazole 11.4% SC (1 ml/L) for dual action'
+      'Use only a locally registered product when treatment is warranted.',
+      'Follow label instructions and crop-specific recommendations.'
     ],
     preventiveMeasures: [
-      'Sow rust-tolerant hybrid corn varieties',
-      'Plant early in the season to avoid late-season airborne spore flushes',
-      'Destroy volunteer corn plants and weed hosts (Oxalis spp.)'
+      'Select suitable resistant hybrids where available.',
+      'Monitor crops regularly.',
+      'Manage volunteer corn plants.'
     ],
-    sampleImage: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=600&q=80'
+    sampleImage:
+      'https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=600&q=80'
   },
+
+  // 4. Rice Bacterial Leaf Blight — existing sample
   {
     id: 'rice-bacterial-blight',
     crop: 'Rice',
-    diseaseName: 'Bacterial Leaf Blight (BLB)',
+    diseaseName: 'Bacterial Leaf Blight',
     scientificName: 'Xanthomonas oryzae pv. oryzae',
     status: 'Infected',
     severity: 'High',
     confidence: 95.8,
     description:
-      'A major bacterial disease of paddy rice that causes yellow-to-straw colored marginal lesions and wilting ("Kresek").',
+      'A bacterial rice disease that causes yellowing and drying along leaf margins and can cause severe damage under favorable conditions.',
     symptoms: [
-      'Water-soaked stripes starting along leaf margins near tip',
-      'Lesions enlarge with wavy margins turning yellowish-white then gray',
-      'Milky bacterial ooze drops on young lesions during early mornings',
-      'Wilting and seedling death (Kresek phase) in early transplanting'
+      'Water-soaked stripes beginning near leaf tips or margins.',
+      'Yellow to straw-colored lesions.',
+      'Lesions may extend along the leaf.',
+      'Severe infection can cause seedling wilting.'
     ],
     favorableConditions: {
-      temperature: '25°C - 34°C with rain storms',
-      humidity: 'High humidity (>85%) and standing water in fields'
+      temperature: 'Warm conditions, often around 25–34°C',
+      humidity: 'High humidity, rain and storm damage'
     },
     organicTreatment: [
-      'Spray bio-control agent Bacillus subtilis or Pseudomonas fluorescens',
-      'Spray 20% fresh cow dung slurry extract supernatant (20 g cow dung in 1L water filtered through muslin cloth)',
-      'Drain stagnant field water for 3 to 4 days to reduce moisture build-up'
+      'Remove infected plant debris after harvest.',
+      'Consult local agricultural extension services for suitable management.',
+      'Avoid moving contaminated plant material between fields.'
     ],
     chemicalTreatment: [
-      'Streptomycin sulphate + Tetracycline hydrochloride (Plantomycin / Agrimycin) 100 g + Copper oxychloride 500 g in 500 L water/ha',
-      'Avoid high doses of nitrogen fertilizer during active outbreak'
+      'Do not assume that a fungicide will control this bacterial disease.',
+      'Use only locally approved products specifically recommended for rice bacterial blight.'
     ],
     preventiveMeasures: [
-      'Grow resistant rice cultivars (e.g. Improved Samba Mahsuri, Swarna-Sub1)',
-      'Balance NPK nutrition; apply potash (K) in 2 splits to enhance resistance',
-      'Avoid deep standing water (>5 cm) during tillering'
+      'Grow locally recommended resistant rice varieties.',
+      'Use clean seed and healthy seedlings.',
+      'Avoid excessive nitrogen fertilizer.',
+      'Maintain balanced crop nutrition and appropriate water management.'
     ],
-    sampleImage: 'https://images.unsplash.com/photo-1536657464919-892534f60d6e?w=600&q=80'
+    sampleImage:
+      'https://images.unsplash.com/photo-1536657464919-892534f60d6e?w=600&q=80'
   },
+
+  // 5. Apple Scab
   {
     id: 'apple-scab',
+    modelLabel: 'Apple_Scab',
     crop: 'Apple',
     diseaseName: 'Apple Scab',
     scientificName: 'Venturia inaequalis',
     status: 'Infected',
     severity: 'Moderate',
-    confidence: 93.1,
+    confidence: null,
     description:
-      'A fungal infection producing olive-green to black velvety spots on apple leaves and corky scabs on fruits, degrading fruit marketability.',
+      'A fungal disease that produces olive-green to dark lesions on apple leaves and scabby lesions on fruit.',
     symptoms: [
-      'Olive-green, velvety, circular spots with blurred margins on leaves',
-      'Leaves become curled, distorted, and drop prematurely',
-      'Dark brown scabby, cracked, corky lesions on fruit skin'
+      'Olive-green, velvety spots on leaves.',
+      'Leaves may become distorted or fall prematurely.',
+      'Dark, corky lesions may develop on fruit.'
     ],
     favorableConditions: {
-      temperature: '18°C - 24°C',
-      humidity: 'Frequent spring rains and continuous wet foliage for 9+ hours'
+      temperature: 'Often around 18–24°C',
+      humidity: 'Frequent rain and prolonged leaf wetness'
     },
     organicTreatment: [
-      'Spray lime sulfur or potassium bicarbonate during budding stages',
-      'Prune apple tree canopy to facilitate swift sunlight penetration and breeze drying',
-      'Rake and compost or shred fallen orchard leaves with 5% urea spray in autumn'
+      'Remove fallen infected leaves to reduce sources of infection.',
+      'Prune appropriately to improve airflow.',
+      'Consider locally recommended orchard sanitation practices.'
     ],
     chemicalTreatment: [
-      'Captan 50% WP (2.5 g/L) or Dodine 65% WP (1 g/L) as protectant',
-      'Myclobutanil 10% WP (0.5 g/L) or Kresoxim-methyl 44.3% SC as curative'
+      'Use only products registered for apple scab in your region.',
+      'Follow product-label instructions and local spray advisories.'
     ],
     preventiveMeasures: [
-      'Plant scab-resistant cultivars',
-      'Apply post-harvest orchard floor sanitation to diminish overwintering pseudothecia',
-      'Operate air-assisted orchard sprayers calibrated for uniform leaf underside coverage'
+      'Consider scab-resistant cultivars.',
+      'Remove infected leaf debris.',
+      'Monitor new foliage during wet weather.',
+      'Maintain good canopy airflow.'
     ],
-    sampleImage: 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=600&q=80'
+    sampleImage:
+      'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=600&q=80'
   },
+
+  // 6. Healthy Tomato Foliage — existing sample
   {
     id: 'healthy-leaf',
     crop: 'Tomato',
     diseaseName: 'Healthy Crop Foliage',
-    scientificName: 'Solanum lycopersicum (Healthy)',
+    scientificName: 'Solanum lycopersicum',
     status: 'Healthy',
     severity: 'None',
     confidence: 99.1,
     description:
-      'The leaf tissue demonstrates vigorous cellular structure, uniform dark green chlorophyll distribution, and no pathogen infection.',
+      'The image has been classified as healthy foliage. Image classification alone cannot guarantee that a plant is disease-free.',
     symptoms: [
-      'Uniform vibrant green color with no chlorosis or necrosis',
-      'Intact leaf margin and clean leaf veins',
-      'No fungal spores, mycelia, bacterial ooze, or viral mosaics detected'
+      'No obvious disease symptoms identified.',
+      'Leaf color appears generally uniform.',
+      'No clear lesions identified by the classifier.'
     ],
     favorableConditions: {
-      temperature: '20°C - 26°C',
-      humidity: 'Balanced relative humidity (50% - 70%)'
+      temperature: 'Depends on crop variety and growth stage',
+      humidity: 'Depends on crop and growing conditions'
     },
     organicTreatment: [
-      'Continue regular soil health maintenance with compost / vermicompost',
-      'Preventive spraying of seaweed extract or Jeevamrutha every 15 days',
-      'Ensure balanced micro-nutrient spray (Zinc, Boron, Iron) at flowering'
+      'Continue appropriate irrigation and soil care.',
+      'Use mature compost where suitable.',
+      'Avoid unnecessary pesticide applications.'
     ],
     chemicalTreatment: [
-      'No chemical fungicide or bactericide required. Avoid unnecessary pesticide applications.'
+      'No pesticide is indicated by a healthy classification alone.',
+      'Investigate any symptoms that appear despite the prediction.'
     ],
     preventiveMeasures: [
-      'Continue standard integrated pest management (IPM) practices',
-      'Regular scouting of crop rows twice weekly',
-      'Maintain appropriate irrigation schedule and soil drainage'
+      'Inspect crops regularly.',
+      'Maintain appropriate irrigation and drainage.',
+      'Use healthy planting material.',
+      'Follow integrated pest management practices.'
     ],
-    sampleImage: 'https://images.unsplash.com/photo-1597055181300-e3633a207518?w=600&q=80'
+    sampleImage:
+      'https://images.unsplash.com/photo-1597055181300-e3633a207518?w=600&q=80'
+  },
+
+  // 7. Apple Black Rot
+  {
+    id: 'apple-black-rot',
+    modelLabel: 'apple_black_rot',
+    crop: 'Apple',
+    diseaseName: 'Apple Black Rot',
+    scientificName: 'Botryosphaeria obtusa',
+    status: 'Infected',
+    severity: 'High',
+    confidence: null,
+    description:
+      'A fungal disease affecting apple fruit, leaves and woody tissues. Fruit rot and leaf lesions can occur, especially where infected plant material remains in the orchard.',
+    symptoms: [
+      'Brown leaf spots that may develop darker margins.',
+      'Circular fruit rot that can develop concentric bands.',
+      'Mummified fruit may remain on the tree.',
+      'Cankers can develop on branches and woody tissues.'
+    ],
+    favorableConditions: {
+      temperature: 'Varies with infection stage and local conditions',
+      humidity: 'Wet weather can favor infection and spore dispersal'
+    },
+    organicTreatment: [
+      'Remove mummified fruit and infected dead branches where appropriate.',
+      'Dispose of infected plant material according to local guidance.',
+      'Keep orchard tools clean.'
+    ],
+    chemicalTreatment: [
+      'Consult local orchard recommendations for registered black-rot control products.',
+      'Follow product labels and observe harvest restrictions.'
+    ],
+    preventiveMeasures: [
+      'Prune dead and diseased branches.',
+      'Remove mummified fruit and infected debris.',
+      'Inspect trees regularly for cankers.',
+      'Maintain appropriate orchard sanitation.'
+    ],
+    sampleImage: ''
+  },
+
+  // 8. Corn Cercospora Leaf Spot
+  {
+    id: 'corn-cercospora',
+    modelLabel: 'Corn_sercospora',
+    crop: 'Corn (Maize)',
+    diseaseName: 'Corn Cercospora Leaf Spot',
+    scientificName: 'Cercospora zeae-maydis',
+    status: 'Infected',
+    severity: 'Moderate',
+    confidence: null,
+    description:
+      'A fungal leaf disease of corn associated with elongated lesions and reduced healthy leaf area. The exact appearance can vary by variety and environment.',
+    symptoms: [
+      'Long, narrow lesions running parallel to leaf veins.',
+      'Lesions may appear tan, gray or brown.',
+      'Multiple lesions may merge as disease progresses.',
+      'Severe disease can reduce functional leaf area.'
+    ],
+    favorableConditions: {
+      temperature: 'Warm conditions favorable to the pathogen',
+      humidity: 'High humidity and extended periods of leaf wetness'
+    },
+    organicTreatment: [
+      'Remove volunteer corn where practical.',
+      'Use crop-residue management practices suited to the farming system.',
+      'Seek local agricultural advice for disease-management options.'
+    ],
+    chemicalTreatment: [
+      'Use only fungicides registered for corn gray leaf spot in your region.',
+      'Follow local thresholds, product labels and resistance-management advice.'
+    ],
+    preventiveMeasures: [
+      'Use locally recommended tolerant or resistant hybrids.',
+      'Rotate with non-host crops where appropriate.',
+      'Manage infected crop residue according to local guidance.',
+      'Monitor lower leaves and disease progression.'
+    ],
+    sampleImage: ''
+  },
+
+  // 9. Grape Black Rot
+  {
+    id: 'grape-black-rot',
+    modelLabel: 'Grape_balck_rot',
+    crop: 'Grape',
+    diseaseName: 'Grape Black Rot',
+    scientificName: 'Guignardia bidwellii',
+    status: 'Infected',
+    severity: 'High',
+    confidence: null,
+    description:
+      'A fungal disease that can damage grape leaves, shoots and berries. Infected berries may shrivel into dark, hard mummies.',
+    symptoms: [
+      'Small brown leaf lesions that may develop dark margins.',
+      'Dark fruit lesions that expand over time.',
+      'Infected berries may shrivel and become black mummies.',
+      'Dark fruiting structures may develop within lesions.'
+    ],
+    favorableConditions: {
+      temperature: 'Warm growing-season conditions',
+      humidity: 'Rain and prolonged wetness can promote infection'
+    },
+    organicTreatment: [
+      'Remove and safely dispose of infected fruit mummies.',
+      'Prune to improve canopy airflow.',
+      'Avoid leaving infected berries attached to vines or trellises.'
+    ],
+    chemicalTreatment: [
+      'Use only products registered for grape black rot in your region.',
+      'Follow locally recommended timing and all label precautions.'
+    ],
+    preventiveMeasures: [
+      'Remove mummified berries from vines and the vineyard floor.',
+      'Prune infected tissues where appropriate.',
+      'Maintain an open canopy.',
+      'Monitor vines during wet weather.'
+    ],
+    sampleImage: ''
+  },
+
+  // 10. Peach Bacterial Spot
+  {
+    id: 'peach-bacterial-spot',
+    modelLabel: 'Peach_bacterial_spot',
+    crop: 'Peach',
+    diseaseName: 'Peach Bacterial Spot',
+    scientificName: 'Xanthomonas arboricola pv. pruni',
+    status: 'Infected',
+    severity: 'Moderate',
+    confidence: null,
+    description:
+      'A bacterial disease that affects peach leaves and fruit. Symptoms can include small angular leaf spots, leaf drop and pitted fruit lesions.',
+    symptoms: [
+      'Small angular or irregular dark leaf spots.',
+      'Yellowing around some leaf lesions.',
+      'Premature leaf drop in affected trees.',
+      'Small sunken lesions on fruit.'
+    ],
+    favorableConditions: {
+      temperature: 'Warm growing-season conditions',
+      humidity: 'Rain, wind-driven moisture and prolonged leaf wetness'
+    },
+    organicTreatment: [
+      'Remove severely affected fallen leaves where practical.',
+      'Avoid handling trees when foliage is wet.',
+      'Consult a local fruit-crop specialist for management options.'
+    ],
+    chemicalTreatment: [
+      'Bacterial spot control options depend on local registration and resistance patterns.',
+      'Use only products specifically recommended for peach bacterial spot.',
+      'Do not assume that routine fungicides will control a bacterial pathogen.'
+    ],
+    preventiveMeasures: [
+      'Choose locally recommended cultivars where available.',
+      'Use healthy nursery stock.',
+      'Avoid excessive irrigation that wets foliage.',
+      'Maintain suitable airflow and orchard sanitation.'
+    ],
+    sampleImage: ''
+  },
+
+  // 11. Potato Early Blight
+  {
+    id: 'potato-early-blight',
+    modelLabel: 'potato_early_blight',
+    crop: 'Potato',
+    diseaseName: 'Potato Early Blight',
+    scientificName: 'Alternaria solani',
+    status: 'Infected',
+    severity: 'Moderate',
+    confidence: null,
+    description:
+      'A fungal disease that often produces brown lesions with concentric rings, particularly on older potato leaves.',
+    symptoms: [
+      'Brown spots with concentric target-like rings.',
+      'Yellowing around affected leaf tissue.',
+      'Lesions often begin on older leaves.',
+      'Severe infection may cause premature leaf loss.'
+    ],
+    favorableConditions: {
+      temperature: 'Often around 24–29°C',
+      humidity: 'High humidity and prolonged leaf wetness'
+    },
+    organicTreatment: [
+      'Remove heavily infected foliage where practical.',
+      'Use healthy seed potatoes.',
+      'Avoid working among plants while foliage is wet.',
+      'Manage crop debris appropriately.'
+    ],
+    chemicalTreatment: [
+      'Use only products registered for potato early blight in your region.',
+      'Follow label rates, protective-equipment requirements and harvest restrictions.',
+      'Follow resistance-management recommendations.'
+    ],
+    preventiveMeasures: [
+      'Rotate potatoes with non-host crops.',
+      'Maintain suitable plant spacing and airflow.',
+      'Avoid unnecessary wetting of foliage.',
+      'Inspect older leaves regularly.'
+    ],
+    sampleImage: ''
+  },
+
+  // 12. Strawberry Leaf Scorch
+  {
+    id: 'strawberry-leaf-scorch',
+    modelLabel: 'Strawberry_leaf_scorch',
+    crop: 'Strawberry',
+    diseaseName: 'Strawberry Leaf Scorch',
+    scientificName: 'Diplocarpon earlianum',
+    status: 'Infected',
+    severity: 'Moderate',
+    confidence: null,
+    description:
+      'A fungal strawberry disease that produces numerous small purple to dark lesions on leaves. Lesions may merge and give leaves a scorched appearance.',
+    symptoms: [
+      'Small purple, red-purple or dark spots on leaves.',
+      'Lesions may merge into larger affected areas.',
+      'Leaf edges and surfaces may appear scorched.',
+      'Severe disease can reduce healthy leaf area.'
+    ],
+    favorableConditions: {
+      temperature: 'Conditions vary by cultivar and growing environment',
+      humidity: 'Wet foliage and humid conditions can favor disease development'
+    },
+    organicTreatment: [
+      'Remove badly affected old leaves where practical.',
+      'Avoid working among plants when leaves are wet.',
+      'Use healthy planting material and appropriate sanitation.'
+    ],
+    chemicalTreatment: [
+      'Use only products registered for strawberry leaf diseases in your region.',
+      'Follow product labels and pre-harvest restrictions.'
+    ],
+    preventiveMeasures: [
+      'Use healthy planting material.',
+      'Maintain suitable spacing and airflow.',
+      'Remove infected leaf debris.',
+      'Avoid prolonged leaf wetness where practical.'
+    ],
+    sampleImage: ''
+  },
+
+  // 13. Tomato Bacterial Spot
+  {
+    id: 'tomato-bacterial-spot',
+    modelLabel: 'tomato_bacterial_spot',
+    crop: 'Tomato',
+    diseaseName: 'Tomato Bacterial Spot',
+    scientificName: 'Xanthomonas species complex',
+    status: 'Infected',
+    severity: 'Moderate',
+    confidence: null,
+    description:
+      'A bacterial disease of tomato that can cause leaf spots, defoliation and raised or scabby lesions on fruit.',
+    symptoms: [
+      'Small dark or water-soaked spots on leaves.',
+      'Lesions may develop yellow margins.',
+      'Leaf tissue can die around numerous lesions.',
+      'Fruit may develop raised, scabby spots.'
+    ],
+    favorableConditions: {
+      temperature: 'Warm conditions',
+      humidity: 'High humidity, rain splash and wet foliage'
+    },
+    organicTreatment: [
+      'Remove badly infected plant material where practical.',
+      'Avoid handling plants when wet.',
+      'Clean tools and equipment between affected areas.',
+      'Seek local agricultural advice for suitable management.'
+    ],
+    chemicalTreatment: [
+      'Use only products registered for tomato bacterial spot in your region.',
+      'Check local guidance because bacterial populations may resist some treatments.',
+      'Follow all label precautions.'
+    ],
+    preventiveMeasures: [
+      'Use clean seed and healthy transplants.',
+      'Avoid overhead irrigation where practical.',
+      'Sanitize tools and trays.',
+      'Rotate crops and manage infected debris.'
+    ],
+    sampleImage: ''
+  },
+
+  // 14. Tomato Mosaic Virus
+  {
+    id: 'tomato-mosaic-virus',
+    modelLabel: 'Tomato_mosaic_virus',
+    crop: 'Tomato',
+    diseaseName: 'Tomato Mosaic Virus',
+    scientificName: 'Tomato mosaic virus (ToMV)',
+    status: 'Infected',
+    severity: 'Moderate',
+    confidence: null,
+    description:
+      'A viral disease that may cause mottled leaf coloration, leaf distortion and reduced plant growth. Visual symptoms alone cannot confirm the virus.',
+    symptoms: [
+      'Light and dark green mosaic patterns on leaves.',
+      'Leaf curling or distortion.',
+      'Reduced plant vigor or stunted growth.',
+      'Fruit development may be affected.'
+    ],
+    favorableConditions: {
+      temperature: 'Symptoms vary with temperature, cultivar and plant age',
+      humidity: 'Spread is often associated with contaminated hands, tools and plant material rather than humidity alone'
+    },
+    organicTreatment: [
+      'There is no curative treatment for an infected plant.',
+      'Remove confirmed infected plants according to local guidance.',
+      'Clean hands and tools after handling suspect plants.'
+    ],
+    chemicalTreatment: [
+      'Fungicides do not cure viral infections.',
+      'Do not apply pesticides solely because a model predicts a virus.',
+      'Seek confirmation if the diagnosis will affect crop management.'
+    ],
+    preventiveMeasures: [
+      'Use healthy seed and disease-free transplants.',
+      'Disinfect tools using a suitable, label-approved method.',
+      'Wash hands before handling healthy plants.',
+      'Remove infected plants and avoid tobacco contamination when handling crops.'
+    ],
+    sampleImage: ''
   }
 ]
 
@@ -223,5 +575,7 @@ export const CROPS_LIST = [
   'Wheat',
   'Apple',
   'Grape',
-  'Bell Pepper'
+  'Bell Pepper',
+  'Peach',
+  'Strawberry'
 ]
