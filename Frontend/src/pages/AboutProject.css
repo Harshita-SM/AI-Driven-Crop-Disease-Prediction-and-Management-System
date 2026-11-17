@@ -1,0 +1,249 @@
+.about-page {
+  background-color: #fafdfb;
+  min-height: calc(100vh - 68px);
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.institution-card {
+  background: linear-gradient(135deg, #0f3d26 0%, #1a5c38 100%);
+  border-radius: 18px;
+  padding: 32px 36px;
+  color: #ffffff;
+  margin-bottom: 40px;
+  box-shadow: 0 6px 24px rgba(15, 61, 38, 0.2);
+}
+
+.institution-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.institution-badge {
+  background-color: var(--green-main);
+  border-radius: 16px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.inst-meta {
+  font-size: 0.82rem;
+  color: #a8d4bc;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.inst-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin: 4px 0 8px 0;
+  color: #ffffff;
+}
+
+.inst-sub {
+  font-size: 0.95rem;
+  color: #cce8d8;
+  line-height: 1.6;
+}
+
+/* Pillars */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.pillar-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 22px;
+  box-shadow: 0 4px 16px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pillar-icon {
+  background-color: var(--green-bg);
+  border-radius: 12px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pillar-card h3 {
+  font-size: 1.15rem;
+  color: var(--green-dark);
+}
+
+.pillar-card p {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* Workflow card */
+.workflow-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 36px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.workflow-title {
+  font-size: 1.3rem;
+  color: var(--green-dark);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.workflow-desc {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  margin-bottom: 30px;
+}
+
+.workflow-steps-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.wf-step {
+  flex: 1;
+  background-color: var(--green-bg);
+  border: 1px solid #d4edd9;
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.wf-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--green-main);
+  color: #ffffff;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.wf-step h4 {
+  font-size: 1rem;
+  color: var(--green-dark);
+  margin-bottom: 6px;
+}
+
+.wf-step p {
+  font-size: 0.82rem;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+.wf-arrow {
+  font-size: 1.5rem;
+  color: var(--green-main);
+  font-weight: bold;
+}
+
+/* Objectives Section */
+.objectives-section {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 32px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 16px var(--shadow);
+}
+
+.objectives-section h3 {
+  font-size: 1.25rem;
+  color: var(--green-dark);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.objectives-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.objective-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  background-color: #f8faf9;
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+/* About CTA */
+.about-cta {
+  background: linear-gradient(135deg, #1a5c38 0%, #2d8a56 100%);
+  border-radius: 18px;
+  padding: 50px 20px;
+  text-align: center;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.about-cta h2 {
+  font-size: 1.8rem;
+}
+
+.about-cta p {
+  font-size: 1rem;
+  color: #c8e6d4;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-steps-row {
+    flex-direction: column;
+  }
+
+  .wf-arrow {
+    transform: rotate(90deg);
+  }
+
+  .objectives-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .institution-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
