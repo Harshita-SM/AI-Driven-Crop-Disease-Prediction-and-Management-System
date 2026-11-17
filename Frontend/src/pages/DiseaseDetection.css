@@ -1,0 +1,580 @@
+.detection-page {
+  background-color: #fafdfb;
+  min-height: calc(100vh - 68px);
+}
+
+.detection-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--green-bg);
+  color: var(--green-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #cce8d8;
+  margin-bottom: 14px;
+}
+
+.detection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 36px;
+  align-items: start;
+}
+
+/* Left Card */
+.input-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 28px;
+  box-shadow: 0 4px 20px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-card h3 {
+  font-size: 1.15rem;
+  color: var(--green-dark);
+  font-weight: 700;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.crop-dropdown {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #d4ded8;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.crop-dropdown:focus {
+  border-color: var(--green-main);
+}
+
+.upload-dropzone {
+  border: 2px dashed #b7d6c5;
+  border-radius: 14px;
+  background-color: var(--green-bg);
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.upload-dropzone:hover {
+  border-color: var(--green-main);
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.upload-icon {
+  color: var(--green-main);
+}
+
+.upload-title {
+  font-weight: 600;
+  color: var(--green-dark);
+  font-size: 0.95rem;
+}
+
+.upload-hint {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.image-preview-wrapper {
+  position: relative;
+  width: 100%;
+  height: 260px;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+
+.change-img-btn {
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.sample-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sample-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+.sample-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sample-pill {
+  background-color: #f1f5f3;
+  border: 1px solid #d8e2dc;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sample-pill:hover {
+  background-color: #e2ede7;
+  border-color: var(--green-main);
+}
+
+.sample-pill.active {
+  background-color: var(--green-main);
+  color: #ffffff;
+  border-color: var(--green-main);
+}
+
+.analyze-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  font-size: 1.05rem;
+}
+
+.spinner-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Right Side: Results & States */
+.results-container {
+  min-height: 460px;
+}
+
+.empty-state {
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px dashed #c0d8cb;
+  padding: 40px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.empty-icon-box {
+  background-color: var(--green-bg);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-state h3 {
+  font-size: 1.3rem;
+  color: var(--green-dark);
+}
+
+.empty-state p {
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.tips-box {
+  margin-top: 15px;
+  background-color: var(--green-bg);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: left;
+  width: 100%;
+  max-width: 480px;
+}
+
+.tips-box h4 {
+  font-size: 0.9rem;
+  color: var(--green-dark);
+  margin-bottom: 8px;
+}
+
+.tips-box ul {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 0.85rem;
+  color: var(--text-gray);
+}
+
+.analyzing-state {
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  padding: 60px 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.ai-loader {
+  width: 140px;
+  height: 6px;
+  background-color: #e0f2e9;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scanner-line {
+  width: 50%;
+  height: 100%;
+  background-color: var(--green-main);
+  border-radius: 6px;
+  position: absolute;
+  animation: scan 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes scan {
+  0% { left: 0%; }
+  100% { left: 50%; }
+}
+
+/* Diagnosis Result Card */
+.diagnosis-result-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 30px var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 24px;
+}
+
+.status-banner {
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.status-banner.infected {
+  background: linear-gradient(135deg, #fff5f5 0%, #fee2e2 100%);
+  border-bottom-color: #fca5a5;
+}
+
+.status-banner.healthy {
+  background: linear-gradient(135deg, #f0faf4 0%, #dcfce7 100%);
+  border-bottom-color: #86efac;
+}
+
+.status-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.status-tag.infected {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.status-tag.healthy {
+  background-color: var(--green-main);
+  color: #ffffff;
+}
+
+.severity-tag {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.severity-high {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #f87171;
+}
+
+.severity-moderate {
+  background-color: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fcd34d;
+}
+
+.severity-none {
+  background-color: #d1fae5;
+  color: #047857;
+  border: 1px solid #6ee7b7;
+}
+
+.disease-title {
+  font-size: 1.45rem;
+  color: var(--text-dark);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.scientific-name {
+  font-size: 0.88rem;
+  color: var(--text-gray);
+  margin-top: 4px;
+}
+
+.confidence-badge {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 16px;
+  text-align: center;
+  min-width: 90px;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.conf-value {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--green-dark);
+}
+
+.conf-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.result-description {
+  padding: 0 28px;
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  line-height: 1.7;
+}
+
+.env-triggers {
+  margin: 0 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  background-color: var(--green-bg);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.env-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-dark);
+}
+
+.symptoms-section {
+  padding: 0 28px;
+}
+
+.symptoms-section h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 10px;
+}
+
+.symptoms-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.symptoms-list li {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.bullet-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--green-main);
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* Recommendations Box */
+.recommendations-box {
+  margin: 0 28px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.rec-tabs {
+  display: flex;
+  background-color: #f8faf9;
+  border-bottom: 1px solid var(--border);
+}
+
+.rec-tab {
+  flex: 1;
+  padding: 12px 14px;
+  border: none;
+  background: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-gray);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-bottom: 3px solid transparent;
+}
+
+.rec-tab:hover {
+  color: var(--green-dark);
+}
+
+.rec-tab.active {
+  color: var(--green-dark);
+  background-color: #ffffff;
+  border-bottom-color: var(--green-main);
+}
+
+.rec-content {
+  padding: 20px;
+}
+
+.rec-content ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rec-content li {
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  line-height: 1.6;
+}
+
+/* Bottom Action Buttons */
+.results-actions {
+  padding: 0 28px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.save-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.save-btn.saved {
+  background-color: #1a5c38;
+}
+
+.weather-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .detection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-banner {
+    flex-direction: column;
+  }
+
+  .confidence-badge {
+    align-self: flex-start;
+  }
+
+  .env-triggers {
+    grid-template-columns: 1fr;
+  }
+}
