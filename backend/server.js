@@ -1,5 +1,6 @@
-const express = require("express");
 
+const express = require("express");
+const cors = require("cors");
 const multer = require("multer");
 const tf = require("@tensorflow/tfjs-node");
 const path = require("path");
@@ -7,7 +8,13 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 5002;
 
+// Allow requests from deployed frontend
+app.use(cors({
+  origin: "https://cropcare-ai-frontend-two.vercel.app"
+}));
+
 app.use(express.json());
+
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: {
@@ -21,6 +28,7 @@ const upload = multer({
     }
   }
 });
+
 let model;
 let labels = [];
 
@@ -37,6 +45,7 @@ async function loadModel() {
   console.log("Crop disease model loaded successfully!");
   console.log("Number of classes:", labels.length);
 }
+
 // Health-check endpoint
 app.get("/api/health", (req, res) => {
   res.status(200).json({
@@ -45,6 +54,8 @@ app.get("/api/health", (req, res) => {
     status: "healthy"
   });
 });
+
+// Disease prediction endpoint
 app.post("/api/predict", upload.single("image"), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({
@@ -89,6 +100,7 @@ app.post("/api/predict", upload.single("image"), async (req, res) => {
       disease: labels[bestIndex],
       confidence: Number((probabilities[bestIndex] * 100).toFixed(2))
     });
+
   } catch (error) {
     console.error("Prediction error:", error.message);
 
@@ -96,6 +108,7 @@ app.post("/api/predict", upload.single("image"), async (req, res) => {
       success: false,
       message: "Could not process the image."
     });
+
   } finally {
     if (imageTensor) imageTensor.dispose();
     if (resizedImage) resizedImage.dispose();
