@@ -1,0 +1,249 @@
+.history-page {
+  background-color: #fafdfb;
+  min-height: calc(100vh - 68px);
+}
+
+.history-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.history-toolbar {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 10px var(--shadow);
+  flex-wrap: wrap;
+}
+
+.filter-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-gray);
+  margin-right: 4px;
+}
+
+.filter-btn {
+  background-color: #f1f5f3;
+  border: 1px solid #d4ded8;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background-color: #e2ede7;
+  border-color: var(--green-main);
+}
+
+.filter-btn.active {
+  background-color: var(--green-main);
+  color: #ffffff;
+  border-color: var(--green-main);
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.clear-history-btn {
+  background: none;
+  border: 1px solid #fca5a5;
+  color: #ef4444;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.clear-history-btn:hover {
+  background-color: #fee2e2;
+}
+
+.new-scan-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  font-size: 0.9rem;
+}
+
+/* Scans Grid */
+.scans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.scan-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.scan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+.scan-card-img-wrapper {
+  position: relative;
+  height: 180px;
+  background-color: #e5e7eb;
+}
+
+.scan-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.scan-status-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.scan-status-pill.healthy {
+  background-color: rgba(45, 138, 86, 0.95);
+  color: #ffffff;
+}
+
+.scan-status-pill.infected {
+  background-color: rgba(220, 38, 38, 0.95);
+  color: #ffffff;
+}
+
+.scan-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.scan-crop-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--green-main);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.scan-disease-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.scan-meta-row {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+}
+
+.scan-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.empty-history-card {
+  background-color: #ffffff;
+  border: 1px dashed #c0d8cb;
+  border-radius: 18px;
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.empty-history-icon {
+  background-color: var(--green-bg);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-history-card h3 {
+  font-size: 1.3rem;
+  color: var(--green-dark);
+}
+
+.empty-history-card p {
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  max-width: 440px;
+}
+
+@media (max-width: 900px) {
+  .scans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .history-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-actions {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 600px) {
+  .scans-grid {
+    grid-template-columns: 1fr;
+  }
+}
